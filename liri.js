@@ -2,6 +2,7 @@ require("dotenv").config();
 
 var keys = require("./keys.js");
 var axios = require("axios");
+var Spotify = require("node-spotify-api");
 
 
 
@@ -20,12 +21,12 @@ switch (process.argv[2]) {
                 console.log(
                 "\n------------\n" 
                 + "Title: " + response.data.Title
-                + "Release Date: " + response.data.Year
-                + "IMDB: " + response.data.imdbRating
-                + "Country: " + response.data.Country
-                + "Language: " + response.data.Language
-                + "Plot: " + response.data.Plot
-                + "Actors: " + response.data.Actors
+                + "\nRelease Date: " + response.data.Year
+                + "\nIMDB: " + response.data.imdbRating
+                + "\nCountry: " + response.data.Country
+                + "\nLanguage: " + response.data.Language
+                + "\nPlot: " + response.data.Plot
+                + "\nActors: " + response.data.Actors
                 + "\n------------\n")
             }
         )
