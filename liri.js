@@ -2,6 +2,7 @@ require("dotenv").config();
 
 var keys = require("./keys.js");
 var axios = require("axios");
+var moment = require("moment");
 
 
 
@@ -15,7 +16,20 @@ switch (process.argv[2]) {
                     "\n------------\n"
                     + "Date: " + moment(response.data[0].datetime).format("L")
                     + "\nVenue: " + response.data[0].venue.name
-                    + "\nLocation: " + response.data[0].venue.city + ", " + response.data[0].venue.region)
+                    + "\nLocation: " + response.data[0].venue.city + ", " + response.data[0].venue.region
+                    + "\n------------\n"
+                    +
+                    "\n------------\n"
+                    + "Date: " + moment(response.data[1].datetime).format("L")
+                    + "\nVenue: " + response.data[1].venue.name
+                    + "\nLocation: " + response.data[1].venue.city + ", " + response.data[1].venue.region
+                    + "\n------------\n"
+                    +
+                    "\n------------\n"
+                    + "Date: " + moment(response.data[2].datetime).format("L")
+                    + "\nVenue: " + response.data[2].venue.name
+                    + "\nLocation: " + response.data[2].venue.city + ", " + response.data[2].venue.region
+                    + "\n------------\n")
             }
         )
         break
