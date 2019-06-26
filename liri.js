@@ -3,6 +3,7 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
 var moment = require("moment");
+var fs = require("fs");
 
 
 
@@ -58,6 +59,7 @@ switch (process.argv[2]) {
         )
         break
     case "do-what-it-says":
+        
         break
 
 }
