@@ -3,7 +3,11 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
 var moment = require("moment");
+var Spotify = require("node-spotify-api")
+var spotify = new Spotify(keys.spotify)
 var fs = require("fs");
+
+
 
 
 
@@ -34,11 +38,16 @@ switch (process.argv[2]) {
             }
         )
         break
-    // case "spotify-this-song":
-    //     var songSearch = process.argv[3];
-    //     spotify.search({type:"track", query: songSearch}).then(function(response) {
-    //         console.log(response)
-    //     })
+    case "spotify-this-song":
+        var songSearch = process.argv[3];
+        spotify.search({type:"track", query: songSearch}).then(function(response) {
+            console.log("\n------------\n"
+                + response.tracks.items[0].album.artists[0].name
+                + "\n" + response.tracks.items[0].album.name
+                + "\n" + response.tracks.items[0].album.href
+                + "\n" + response.tracks.items[0].name
+                + "\n------------\n")
+        })
         break
     case "movie-this":
         var movieName = process.argv[3];
@@ -59,7 +68,15 @@ switch (process.argv[2]) {
         )
         break
     case "do-what-it-says":
-        
+        fs.readFile("random.txt", "utf8", function(err, data) {
+            if (err) {
+                return console.log(err)
+            }
+            var dataArr = []
+            dataArr.push(data)
+            console.log(dataArr[0])
+        })
         break
+
 
 }
